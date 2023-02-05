@@ -161,5 +161,14 @@ namespace Barzellette
                 wbbarzelletta.NavigateToString("L'id selezionato non &egrave; stato trovato");
             }
         }
+
+        private void mnExit_click(object sender, RoutedEventArgs e)
+        {
+             Application.Current.Shutdown();
+        }
+        private void mnInfo_click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Autore: Giulio Sorrentino © 2022\nUn semplice fortune personale basato su access\nLicenza: GPL 3.0 o, secondo la tua opinione, qualsiasi versione successiva.", "Informazioni", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+        }
     }
 }
