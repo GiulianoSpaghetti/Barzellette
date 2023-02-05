@@ -7,13 +7,22 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <TextBox x:Name="txtid" Grid.Row="0" />
-        <WebBrowser Height="200" Name="wbbarzelletta" Grid.Row="1"></WebBrowser>
-        <Button Name="btnVisualizza" Click="btn_Clicked" Content="Visualizza" Grid.Row="2"/>
+        <TextBox x:Name="txtid" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4"/>
+        <WebBrowser Height="200" Name="wbbarzelletta" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" />
+        <Button Name="btnIndietro" Click="btnIndietro_Clicked" Content="Indietro" Grid.Row="2" Grid.Column="0" />
+        <Button Name="btnVisualizza" Click="btn_Clicked" Content="Visualizza" Grid.Row="2" Grid.Column="1"/>
+        <Button Name="btnAvanti" Click="btnAvanti_Clicked" Content="Avanti" Grid.Row="2" Grid.Column="2" />
+        <Button Name="btnRandom" Click="btnRandom_Clicked" Content="Random" Grid.Row="2" Grid.Column="3" />
     </Grid>
 </Window>
