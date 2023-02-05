@@ -45,18 +45,17 @@ namespace Barzellette
 
             }
             r=new Random();
-            Application.Current.MainWindow.Closing += new CancelEventHandler(MainWindow_Closing);
+            Closing += MainWindow_Closing;
         }
 
-        void MainWindow_Closing(object sender, CancelEventArgs e)
+        void MainWindow_Closing(object? sender, CancelEventArgs e)
         {
-        dbConnection.Close();
+            dbConnection.Close();
         }
 
         private void btn_Clicked(object sender, RoutedEventArgs e)
         {
             ulong id = 0;
-            wbbarzelletta.NavigateToString("&nbsp;");
             try
             {
                  id = ulong.Parse(txtid.Text);
@@ -85,12 +84,12 @@ namespace Barzellette
             {
                 myReader.Read();
                 String s=myReader.GetString(0);
-                s = s.Replace("à", "&agrave;"); ;
-                s = s.Replace("è", "&egrave:"); ;
-                s = s.Replace("é", "&eacute;"); ;
-                s = s.Replace("ì", "&igrave;"); ;
-                s = s.Replace("ò", "&ograve;"); ;
-                s = s.Replace("ù", "&ugrave;"); ;
+                s = s.Replace("à", "&agrave;"); 
+                s = s.Replace("è", "&egrave:"); 
+                s = s.Replace("é", "&eacute;"); 
+                s = s.Replace("ì", "&igrave;"); 
+                s = s.Replace("ò", "&ograve;"); 
+                s = s.Replace("ù", "&ugrave;"); 
                 wbbarzelletta.NavigateToString(s);
             } else
             {
@@ -160,6 +159,7 @@ namespace Barzellette
             {
                 wbbarzelletta.NavigateToString("L'id selezionato non &egrave; stato trovato");
             }
+            myReader.Close();
         }
 
         private void mnExit_click(object sender, RoutedEventArgs e)
