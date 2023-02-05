@@ -1,0 +1,16 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="File">Fichier</system:String>
+    <system:String x:Key="Exit">Vous sortez</system:String>
+    <system:String x:Key="?">?</system:String>
+    <system:String x:Key="Informations">Information</system:String>
+    <system:String x:Key="Back">Wn arrière</system:String>
+    <system:String x:Key="Show">Voir</system:String>
+    <system:String x:Key="Forward">Après vous</system:String>
+    <system:String x:Key="Random">Aléatoire</system:String>
+    <system:String x:Key="IDNotInteger">Le champ id n'est pas un entier.</system:String>
+    <system:String x:Key="IDNotFound">L'identifiant sélectionné n'est pas valide. été trouvé</system:String>
+    <system:String x:Key="InvalidPath">Passare la path al file accdb. Il programma si chiude.</system:String>
+    <system:String x:Key="Error">Erreur</system:String>
+</ResourceDictionary>

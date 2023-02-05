@@ -25,7 +25,7 @@ InfoAfterFile=C:\Users\numer\source\repos\Barzellette\postinstall.txt
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 ;PrivilegesRequired=lowest
 OutputDir=C:\Users\numer\OneDrive\Desktop
-OutputBaseFilename=barzellette-0.1-win64
+OutputBaseFilename=barzellette-0.1-1-win64
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
