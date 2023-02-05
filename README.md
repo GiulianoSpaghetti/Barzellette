@@ -20,3 +20,5 @@ https://stackoverflow.com/questions/3683450/handling-the-window-closing-event-wi
 https://stackoverflow.com/questions/2820357/how-do-i-exit-a-wpf-application-programmatically
 
 https://sa.ndeep.me/post/how-to-create-smart-wpf-command-line-arguments
+
+https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.canceleventhandler?view=net-7.0
