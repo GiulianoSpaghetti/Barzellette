@@ -22,3 +22,5 @@ https://stackoverflow.com/questions/2820357/how-do-i-exit-a-wpf-application-prog
 https://sa.ndeep.me/post/how-to-create-smart-wpf-command-line-arguments
 
 https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.canceleventhandler?view=net-7.0
+
+https://stackoverflow.com/questions/10881336/icons-with-parameters
