@@ -1,16 +1,16 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
-    <system:String x:Key="File">File</system:String>
-    <system:String x:Key="Exit">Esci</system:String>
+    <system:String x:Key="File">Datei</system:String>
+    <system:String x:Key="Exit">Du gehst raus</system:String>
     <system:String x:Key="?">?</system:String>
-    <system:String x:Key="Informations">Informazioni</system:String>
-    <system:String x:Key="Back">Indietro</system:String>
-    <system:String x:Key="Show">Visualizza</system:String>
-    <system:String x:Key="Forward">Avanti</system:String>
-    <system:String x:Key="Random">A caso</system:String>
-    <system:String x:Key="IDNotInteger">Il campo id non &amp;egrave; intero.</system:String>
-    <system:String x:Key="IDNotFound">L'id selezionato non &amp;egrave; stato trovato</system:String>
-    <system:String x:Key="InvalidPath">Passare la path al file accdb. Il programma si chiude.</system:String>
-    <system:String x:Key="Error">Errore</system:String>
+    <system:String x:Key="Informations">Information</system:String>
+    <system:String x:Key="Back">Rückwärts</system:String>
+    <system:String x:Key="Show">Sicht</system:String>
+    <system:String x:Key="Forward">Nach Ihnen</system:String>
+    <system:String x:Key="Random">Willkürlich</system:String>
+    <system:String x:Key="IDNotInteger">Das ID-Feld ist keine Ganzzahl.</system:String>
+    <system:String x:Key="IDNotFound">Die ausgewählte ID wurde nicht gefunden</system:String>
+    <system:String x:Key="InvalidPath">Übergeben Sie den Pfad zur accdb-Datei. Das Programm wird geschlossen.</system:String>
+    <system:String x:Key="Error">Fehler</system:String>
 </ResourceDictionary>
