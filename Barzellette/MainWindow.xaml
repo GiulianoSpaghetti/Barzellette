@@ -12,7 +12,7 @@
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <TextBox x:Name="txtid" Grid.Row="0" Text="1"/>
+        <TextBox x:Name="txtid" Grid.Row="0" />
         <WebBrowser Height="200" Name="wbbarzelletta" Grid.Row="1"></WebBrowser>
         <Button Name="btnVisualizza" Click="btn_Clicked" Content="Visualizza" Grid.Row="2"/>
     </Grid>
