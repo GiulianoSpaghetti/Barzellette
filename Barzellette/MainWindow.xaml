@@ -20,14 +20,14 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Menu Grid.Row="0" Grid.ColumnSpan="4">
-            <MenuItem Header="File">
-                <MenuItem Header="Esci" Click="mnExit_click"/>
+            <MenuItem Name="mnFile" Header="File">
+                <MenuItem Name="mnEsci" Header="Esci" Click="mnExit_click"/>
             </MenuItem>
-            <MenuItem Header="?">
-                <MenuItem Header="Informazioni" Click="mnInfo_click" />
+            <MenuItem Name="mnPI" Header="?">
+                <MenuItem Name="mnInfo" Header="Informazioni" Click="mnInfo_click" />
             </MenuItem>
         </Menu>
-        <TextBox x:Name="txtid" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4"/>
+        <TextBox Name="txtid" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4"/>
         <WebBrowser Name="wbbarzelletta" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4" Source="about:blank"></WebBrowser>
         <Button Name="btnIndietro" Click="btnIndietro_Clicked" Content="Indietro" Grid.Row="3" Grid.Column="0" />
         <Button Name="btnVisualizza" Click="btn_Clicked" Content="Visualizza" Grid.Row="3" Grid.Column="1"/>

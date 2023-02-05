@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.OleDb;
+using System.Globalization;
 using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
@@ -32,9 +35,9 @@ namespace Barzellette
         public MainWindow()
         {
             InitializeComponent();
-            string[] args=Environment.GetCommandLineArgs(); ;
+            string[] args=Environment.GetCommandLineArgs();
             if (args.Length != 2) {
-                MessageBox.Show("Passare la path al file accdb. Il programma si chiude.", "Errore", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(this.FindResource("PathNonValida") as string, this.FindResource("Error") as string, MessageBoxButton.OK, MessageBoxImage.Error);
                 Application.Current.Shutdown();
             }
             dbConnection = new OleDbConnection { ConnectionString = $"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={args[1]}" };
@@ -43,13 +46,20 @@ namespace Barzellette
                 dbConnection.Open();
             } catch (System.Data.OleDb.OleDbException ex)
             {
-                MessageBox.Show(ex.Message, "Errore", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(ex.Message, this.FindResource("Error") as string, MessageBoxButton.OK, MessageBoxImage.Error);
                 Application.Current.Shutdown();
 
             }
             r=new Random();
             Closing += MainWindow_Closing;
-            wbbarzelletta.Source = new Uri("about:blank");
+            mnFile.Header=this.FindResource("File") as string;
+            mnEsci.Header = this.FindResource("Exit") as string;
+            mnPI.Header = this.FindResource("?") as string;
+            mnInfo.Header = this.FindResource("Informations") as string;
+            btnIndietro.Content = this.FindResource("Back") as string;
+            btnVisualizza.Content = this.FindResource("Show") as string;
+            btnAvanti.Content = this.FindResource("Forward") as string;
+            btnRandom.Content = this.FindResource("Random") as string;
         }
 
         void MainWindow_Closing(object? sender, CancelEventArgs e)
@@ -65,7 +75,7 @@ namespace Barzellette
                  id = ulong.Parse(txtid.Text);
             } catch (System.FormatException)
             {
-                wbbarzelletta.NavigateToString("Il campo id non &egrave; intero.");
+                wbbarzelletta.NavigateToString(this.FindResource("IDNotInteger") as string);
                 return;
             }
             myDataSet = new DataSet();
@@ -96,7 +106,7 @@ namespace Barzellette
                 wbbarzelletta.NavigateToString(s);
             } else
             {
-                wbbarzelletta.NavigateToString("L'id selezionato non &egrave; stato trovato");
+                wbbarzelletta.NavigateToString(this.FindResource("IDNotFound") as string);
             }
             myReader.Close();
         }
@@ -111,7 +121,7 @@ namespace Barzellette
             }
             catch (System.FormatException)
             {
-                wbbarzelletta.NavigateToString("Il campo id non &egrave; intero.");
+                wbbarzelletta.NavigateToString(this.FindResource("IDNotInteger") as string);
                 return;
             }
             txtid.Text = $"{--id}";
@@ -127,7 +137,7 @@ namespace Barzellette
             }
             catch (System.FormatException)
             {
-                wbbarzelletta.NavigateToString("Il campo id non &egrave; intero.");
+                wbbarzelletta.NavigateToString(this.FindResource("IDNotInteger") as string);
                 return;
             }
             txtid.Text = $"{++id}";
@@ -156,11 +166,11 @@ namespace Barzellette
             {
                 myReader.Read();
                 int id = myReader.GetInt32(0);
-                txtid.Text = $"{r.Next(id)}";
+                txtid.Text = $"{r.Next(1,id)}";
             }
             else
             {
-                wbbarzelletta.NavigateToString("L'id selezionato non &egrave; stato trovato");
+                wbbarzelletta.NavigateToString(this.FindResource("IDNotFound") as string);
             }
             myReader.Close();
         }
@@ -171,7 +181,7 @@ namespace Barzellette
         }
         private void mnInfo_click(object sender, RoutedEventArgs e)
         {
-            wbbarzelletta.NavigateToString("<b>Autore</b>: Giulio Sorrentino &copy; 2023<br />Un semplice fortune personale basato su access<br /><b>Licenza</b>: GPL 3.0 o, secondo la tua opinione, qualsiasi versione successiva.");
+            wbbarzelletta.NavigateToString("<b>Autore</b>: Giulio Sorrentino &copy; 2023<br /><b>Versione</b>: 0.1<br />Un semplice fortune personale basato su access<br /><b>Licenza</b>: GPL 3.0 o, secondo la tua opinione, qualsiasi versione successiva.");
         }
     }
 }
