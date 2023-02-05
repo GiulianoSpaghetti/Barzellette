@@ -18,7 +18,7 @@ I dizionari presenti sono italiano, francese, tedsco, spagnolo e portoghese, in 
 
 # Internazionalization
 The internazionalization of WPF programs has changed, the priority is given to english dictionary, and then to the visual studio language.
-If you are francois, detusche, espagnol, portughese or italian you can simply recompile, otherwise you need to translate it, even if you are english.
+If you are francois, detusche, espanol, portughese or italian you can simply recompile, otherwise you need to translate it, even if you are english.
 
 # Bibliografia
 
