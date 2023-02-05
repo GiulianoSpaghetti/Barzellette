@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Barzellette": {
+      "commandName": "Project",
+      "commandLineArgs": "c:\\users\\numer\\Onedrive\\Documenti\\barzellette.accdb"
+    }
+  }
+}
