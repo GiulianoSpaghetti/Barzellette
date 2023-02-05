@@ -26,6 +26,9 @@ namespace Barzellette
     {
         private OleDbConnection dbConnection;
         private Random r;
+        private DataSet myDataSet;
+        private OleDbCommand command;
+        private OleDbDataReader myReader;
         public MainWindow()
         {
             InitializeComponent();
@@ -46,6 +49,7 @@ namespace Barzellette
             }
             r=new Random();
             Closing += MainWindow_Closing;
+            wbbarzelletta.Source = new Uri("about:blank");
         }
 
         void MainWindow_Closing(object? sender, CancelEventArgs e)
@@ -64,10 +68,9 @@ namespace Barzellette
                 wbbarzelletta.NavigateToString("Il campo id non &egrave; intero.");
                 return;
             }
-            DataSet myDataSet = new DataSet();
+            myDataSet = new DataSet();
             var myAdapptor = new OleDbDataAdapter();
-            OleDbCommand command = new OleDbCommand($"SELECT Testo FROM Barzellette WHERE ID={id}", dbConnection);
-            OleDbDataReader myReader;
+            command = new OleDbCommand($"SELECT Testo FROM Barzellette WHERE ID={id}", dbConnection);
             try
             {
                 myReader = command.ExecuteReader();
@@ -95,6 +98,7 @@ namespace Barzellette
             {
                 wbbarzelletta.NavigateToString("L'id selezionato non &egrave; stato trovato");
             }
+            myReader.Close();
         }
 
         private void btnIndietro_Clicked(object sender, RoutedEventArgs e)
@@ -132,10 +136,9 @@ namespace Barzellette
 
         private void btnRandom_Clicked(object sender, RoutedEventArgs e)
         {
-            DataSet myDataSet = new DataSet();
+            myDataSet = new DataSet();
             var myAdapptor = new OleDbDataAdapter();
-            OleDbCommand command = new OleDbCommand($"Select top 1 ID as MaxId FROM Barzellette order by ID desc ", dbConnection);
-            OleDbDataReader myReader;
+            command = new OleDbCommand($"Select top 1 ID as MaxId FROM Barzellette order by ID desc ", dbConnection);
             try
             {
                 myReader = command.ExecuteReader();
@@ -168,7 +171,7 @@ namespace Barzellette
         }
         private void mnInfo_click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Autore: Giulio Sorrentino © 2023\nUn semplice fortune personale basato su access\nLicenza: GPL 3.0 o, secondo la tua opinione, qualsiasi versione successiva.", "Informazioni", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+            wbbarzelletta.NavigateToString("<b>Autore</b>: Giulio Sorrentino &copy; 2023<br />Un semplice fortune personale basato su access<br /><b>Licenza</b>: GPL 3.0 o, secondo la tua opinione, qualsiasi versione successiva.");
         }
     }
 }
