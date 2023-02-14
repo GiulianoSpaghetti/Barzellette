@@ -19,7 +19,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
 namespace Barzellette
 {
     /// <summary>
@@ -32,13 +31,13 @@ namespace Barzellette
         private DataSet myDataSet;
         private OleDbCommand command;
         private OleDbDataReader myReader;
+        private ResourceDictionary d;
         public MainWindow()
         {
             InitializeComponent();
-            CultureInfo.CurrentUICulture = CultureInfo.InstalledUICulture;
-            string[] args=Environment.GetCommandLineArgs();
+            string[] args = Environment.GetCommandLineArgs();
             if (args.Length != 2) {
-                MessageBox.Show(this.FindResource("PathNonValida") as string, this.FindResource("Error") as string, MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(Application.Current.Resources["PathNonValida"] as string,d["Error"] as string, MessageBoxButton.OK, MessageBoxImage.Error);
                 Application.Current.Shutdown();
             }
             dbConnection = new OleDbConnection { ConnectionString = $"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={args[1]}" };
@@ -47,20 +46,25 @@ namespace Barzellette
                 dbConnection.Open();
             } catch (System.Data.OleDb.OleDbException ex)
             {
-                MessageBox.Show(ex.Message, this.FindResource("Error") as string, MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(ex.Message,d["Error"] as string, MessageBoxButton.OK, MessageBoxImage.Error);
                 Application.Current.Shutdown();
 
             }
-            r=new Random();
+            r = new Random();
             Closing += MainWindow_Closing;
-            mnFile.Header=this.FindResource("File") as string;
-            mnEsci.Header = this.FindResource("Exit") as string;
-            mnPI.Header = this.FindResource("?") as string;
-            mnInfo.Header = this.FindResource("Informations") as string;
-            btnIndietro.Content = this.FindResource("Back") as string;
-            btnVisualizza.Content = this.FindResource("Show") as string;
-            btnAvanti.Content = this.FindResource("Forward") as string;
-            btnRandom.Content = this.FindResource("Random") as string;
+            try
+            {
+                d = this.FindResource(CultureInfo.InstalledUICulture.Name) as ResourceDictionary;
+            } catch (ResourceReferenceKeyNotFoundException ex)
+            { d = this.FindResource("en-US") as ResourceDictionary; }
+            mnFile.Header =d["File"];
+            mnEsci.Header =d["Exit"];
+            mnPI.Header =d["?"];
+            mnInfo.Header =d["Informations"];
+            btnIndietro.Content =d["Back"];
+            btnVisualizza.Content =d["Show"];
+            btnAvanti.Content =d["Forward"];
+            btnRandom.Content =d["Random"];
         }
 
         void MainWindow_Closing(object? sender, CancelEventArgs e)
@@ -76,7 +80,7 @@ namespace Barzellette
                  id = ulong.Parse(txtid.Text);
             } catch (System.FormatException)
             {
-                wbbarzelletta.NavigateToString(this.FindResource("IDNotInteger") as string);
+                wbbarzelletta.NavigateToString(Application.Current.Resources["IDNotInteger"] as string);
                 return;
             }
             myDataSet = new DataSet();
@@ -107,7 +111,7 @@ namespace Barzellette
                 wbbarzelletta.NavigateToString(s);
             } else
             {
-                wbbarzelletta.NavigateToString(this.FindResource("IDNotFound") as string);
+                wbbarzelletta.NavigateToString(Application.Current.Resources["IDNotFound"] as string);
             }
             myReader.Close();
         }
@@ -122,7 +126,7 @@ namespace Barzellette
             }
             catch (System.FormatException)
             {
-                wbbarzelletta.NavigateToString(this.FindResource("IDNotInteger") as string);
+                wbbarzelletta.NavigateToString(Application.Current.Resources["IDNotInteger"] as string);
                 return;
             }
             txtid.Text = $"{--id}";
@@ -138,7 +142,7 @@ namespace Barzellette
             }
             catch (System.FormatException)
             {
-                wbbarzelletta.NavigateToString(this.FindResource("IDNotInteger") as string);
+                wbbarzelletta.NavigateToString(Application.Current.Resources["IDNotInteger"] as string);
                 return;
             }
             txtid.Text = $"{++id}";
@@ -171,7 +175,7 @@ namespace Barzellette
             }
             else
             {
-                wbbarzelletta.NavigateToString(this.FindResource("IDNotFound") as string);
+                wbbarzelletta.NavigateToString(Application.Current.Resources["IDNotFound"] as string);
             }
             myReader.Close();
         }
