@@ -43,8 +43,9 @@ namespace Barzellette
             { d = this.FindResource("en") as ResourceDictionary; }
             string[] args = Environment.GetCommandLineArgs();
             if (args.Length != 2) {
-                MessageBox.Show(d["PathNonValida"] as string,d["Error"] as string, MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(d["InvalidPath"] as string,d["Error"] as string, MessageBoxButton.OK, MessageBoxImage.Error);
                 Application.Current.Shutdown();
+                return;
             }
             dbConnection = new OleDbConnection { ConnectionString = $"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={args[1]}" };
             try
