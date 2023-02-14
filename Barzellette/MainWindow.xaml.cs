@@ -38,9 +38,7 @@ namespace Barzellette
             string s;
             try
             {
-                s = Windows.System.UserProfile.GlobalizationPreferences.Languages[0].ToString();
-                s = s.Substring(0, s.IndexOf('-'));
-                d = this.FindResource(s) as ResourceDictionary;
+                d = this.FindResource(CultureInfo.CurrentCulture.TwoLetterISOLanguageName) as ResourceDictionary;
             } catch (ResourceReferenceKeyNotFoundException ex)
             { d = this.FindResource("en") as ResourceDictionary; }
             string[] args = Environment.GetCommandLineArgs();
