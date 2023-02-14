@@ -54,9 +54,9 @@ namespace Barzellette
             Closing += MainWindow_Closing;
             try
             {
-                d = this.FindResource(CultureInfo.InstalledUICulture.Name) as ResourceDictionary;
+                d = this.FindResource(CultureInfo.InstalledUICulture.TwoLetterISOLanguageName) as ResourceDictionary;
             } catch (ResourceReferenceKeyNotFoundException ex)
-            { d = this.FindResource("en-US") as ResourceDictionary; }
+            { d = this.FindResource("en") as ResourceDictionary; }
             mnFile.Header =d["File"];
             mnEsci.Header =d["Exit"];
             mnPI.Header =d["?"];

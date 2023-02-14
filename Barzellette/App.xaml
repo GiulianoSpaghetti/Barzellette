@@ -5,11 +5,12 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
-            <ResourceDictionary x:Key="en-US" Source="en_US.xaml" />
-            <ResourceDictionary x:Key="it-IT" Source="it_IT.xaml" />
-            <ResourceDictionary x:Key="de-DE" Source="de_DE.xaml" />
-            <ResourceDictionary x:Key="es-ES" Source="es_ES.xaml" />
-            <ResourceDictionary x:Key="fr-FR" Source="fr_FR.xaml" />
+            <ResourceDictionary x:Key="en" Source="en_US.xaml" />
+            <ResourceDictionary x:Key="it" Source="it_IT.xaml" />
+            <ResourceDictionary x:Key="de" Source="de_DE.xaml" />
+            <ResourceDictionary x:Key="es" Source="es_ES.xaml" />
+            <ResourceDictionary x:Key="fr" Source="fr_FR.xaml" />
+            <ResourceDictionary x:Key="pt" Source="pt_BR.xaml" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>
