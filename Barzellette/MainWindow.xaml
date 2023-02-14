@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Barzellette"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Barzellette" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -21,7 +21,7 @@
         </Grid.RowDefinitions>
         <Menu Grid.Row="0" Grid.ColumnSpan="4">
             <MenuItem Name="mnFile" Header="File">
-                <MenuItem Name="mnEsci" Header="Esci" Click="mnExit_click"/>
+                <MenuItem Name="mnEsci" Click="mnExit_click"/>
             </MenuItem>
             <MenuItem Name="mnPI" Header="?">
                 <MenuItem Name="mnInfo" Header="Informazioni" Click="mnInfo_click" />

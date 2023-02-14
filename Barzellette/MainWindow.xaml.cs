@@ -35,6 +35,7 @@ namespace Barzellette
         public MainWindow()
         {
             InitializeComponent();
+            CultureInfo.CurrentUICulture = CultureInfo.InstalledUICulture;
             string[] args=Environment.GetCommandLineArgs();
             if (args.Length != 2) {
                 MessageBox.Show(this.FindResource("PathNonValida") as string, this.FindResource("Error") as string, MessageBoxButton.OK, MessageBoxImage.Error);
