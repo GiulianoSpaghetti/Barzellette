@@ -35,9 +35,17 @@ namespace Barzellette
         public MainWindow()
         {
             InitializeComponent();
+            string s;
+            try
+            {
+                s = Windows.System.UserProfile.GlobalizationPreferences.Languages[0].ToString();
+                s = s.Substring(0, s.IndexOf('-'));
+                d = this.FindResource(s) as ResourceDictionary;
+            } catch (ResourceReferenceKeyNotFoundException ex)
+            { d = this.FindResource("en") as ResourceDictionary; }
             string[] args = Environment.GetCommandLineArgs();
             if (args.Length != 2) {
-                MessageBox.Show(Application.Current.Resources["PathNonValida"] as string,d["Error"] as string, MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(d["PathNonValida"] as string,d["Error"] as string, MessageBoxButton.OK, MessageBoxImage.Error);
                 Application.Current.Shutdown();
             }
             dbConnection = new OleDbConnection { ConnectionString = $"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={args[1]}" };
@@ -52,11 +60,6 @@ namespace Barzellette
             }
             r = new Random();
             Closing += MainWindow_Closing;
-            try
-            {
-                d = this.FindResource(CultureInfo.InstalledUICulture.TwoLetterISOLanguageName) as ResourceDictionary;
-            } catch (ResourceReferenceKeyNotFoundException ex)
-            { d = this.FindResource("en") as ResourceDictionary; }
             mnFile.Header =d["File"];
             mnEsci.Header =d["Exit"];
             mnPI.Header =d["?"];
