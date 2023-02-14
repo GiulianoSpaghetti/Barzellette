@@ -12,13 +12,8 @@ La path del database va passata come parametro.
 Il programma si accorge se il database non esiste o se non è  opportunamente programmato.
 
 # Internazionalizzazione
-Sfortunatamente mi è parso di capire che una internazionalizzazione globale non è più possibile.
-Se c'è il dizionario inglese viene data la priorità a quello, altrimenti viene data la priorità alla lingua di visual studio.
-I dizionari presenti sono italiano, francese, tedsco, spagnolo e portoghese, in teoria basta ricompilare con un visual studio in una di quste lingue per avere il programma correttamente localizzato.
+I dizionari presenti sono italiano, francese, tedsco, spagnolo, portoghese e inglese, in teoria basta dare uno dei seguenti linmguaggi in pasto a windows per vedere l'ui internazionalizzata.
 
-# Internazionalization
-The internazionalization of WPF programs has changed, the priority is given to english dictionary, and then to the visual studio language.
-If you are francois, detusche, espanol, portughese or italian you can simply recompile, otherwise you need to translate it, even if you are english.
 
 # Bibliografia
 
@@ -33,3 +28,5 @@ https://sa.ndeep.me/post/how-to-create-smart-wpf-command-line-arguments
 https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.canceleventhandler?view=net-7.0
 
 https://stackoverflow.com/questions/10881336/icons-with-parameters
+
+https://stackoverflow.com/questions/5710127/get-operating-system-language-in-c-sharp
