@@ -17,19 +17,3 @@ I dizionari presenti sono italiano, francese, tedsco, spagnolo, portoghese e ing
 # Donazione
 
 http://numerone.altervista.org/donazioni.php
-
-# Bibliografia
-
-https://learn.microsoft.com/en-us/dotnet/api/system.string.replace?view=net-7.0
-
-https://stackoverflow.com/questions/3683450/handling-the-window-closing-event-with-wpf-mvvm-light-toolkit
-
-https://stackoverflow.com/questions/2820357/how-do-i-exit-a-wpf-application-programmatically
-
-https://sa.ndeep.me/post/how-to-create-smart-wpf-command-line-arguments
-
-https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.canceleventhandler?view=net-7.0
-
-https://stackoverflow.com/questions/10881336/icons-with-parameters
-
-https://stackoverflow.com/questions/5710127/get-operating-system-language-in-c-sharp
